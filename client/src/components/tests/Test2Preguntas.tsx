@@ -139,9 +139,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
         const tipo = JSON.parse(JSON.stringify(name[propiedad].name));
         // console.log( tipo );
 
-      const tipos = ['Esquizoide', 'Evitativo', 'Dependiente', 'Histriónico', 'Narcisista', 'Antisocial', 'Agresivo-sádico', 'Compulsivo', 'Pasivo-agresivo', 'Autoderrotista', 
-      'Esquizotípico', 'Borderline', 'Paranoide', 'Ansiedad', 'Somatoformo', 'Bipolar', 'Distimia', 'Dependencia de alcohol', 'Dependencia de drogas', 
-        'Desorden del pensamiento', 'Depresión mayor', 'Desorden delusional', 'Validez', 'Deseabilidad Social', 'Autodescalificación'];
+      const tipos = ['Esquizoide', 'Evitativo', 'Dependiente', 'Histriónico', 'Narcisista', 'Antisocial', 'Agresivo-sádico', 'Compulsivo', 'Pasivo-agresivo', 'Autoderrotista',  'Esquizotípico', 'Borderline', 'Paranoide', 'Ansiedad', 'Somatoformo', 'Bipolar', 'Distimia', 'Dependencia de alcohol', 'Dependencia de drogas', 'Desorden del pensamiento', 'Depresión mayor', 'Desorden delusional', 'Validez', 'Deseabilidad Social', 'Autodescalificación'];
         if ( tipo === tipos[0] ) {
           if ( value === 'Verdadero') {
             const poss3 = [2, 13, 19, 34, 81, 143, 161];
@@ -966,7 +964,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           } else if ( value === 'Falso') {
             const poss3 = [];
             const poss2 = [];
-            const poss1 = [19, 42, 158, 161,];
+            const poss1 = [19, 42, 158, 161];
             for (let e of poss3) {
               if (pos === e) {
                 const val = 1 * 3;
