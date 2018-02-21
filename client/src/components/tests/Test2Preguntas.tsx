@@ -139,7 +139,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
         const tipo = JSON.parse(JSON.stringify(name[propiedad].name));
         // console.log( tipo );
 
-      const tipos = ['Esquizoide', 'Evitativo', 'Dependiente', 'Histriónico', 'Narcisista', 'Antisocial', 'Agresivo-sádico', 'Compulsivo', 'Pasivo-agresivo', 'Autoderrotista',  'Esquizotípico', 'Borderline', 'Paranoide', 'Ansiedad', 'Somatoformo', 'Bipolar', 'Distimia', 'Dependencia de alcohol', 'Dependencia de drogas', 'Desorden del pensamiento', 'Depresión mayor', 'Desorden delusional', 'Validez', 'Deseabilidad Social', 'Autodescalificación'];
+      const tipos = ['Esquizoide', 'Evitativo', 'Dependiente', 'Histriónico', 'Narcisista', 'Antisocial', 'Agresivo-sádico', 'Compulsivo', 'Pasivo-agresivo', 'Autoderrotista', 'Esquizotípico', 'Borderline', 'Paranoide', 'Ansiedad', 'Somatoformo', 'Bipolar', 'Distimia', 'Dependencia de alcohol', 'Dependencia de drogas', 'Desorden del pensamiento', 'Depresión mayor', 'Desorden delusional', 'Deseabilidad Social', 'Autodescalificación', 'Validez'];
         if ( tipo === tipos[0] ) {
           if ( value === 'Verdadero') {
             const poss3 = [2, 13, 19, 34, 81, 143, 161];
@@ -965,6 +965,483 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
             const poss3 = [];
             const poss2 = [];
             const poss1 = [19, 42, 158, 161];
+            for (let e of poss3) {
+              if (pos === e) {
+                const val = 1 * 3;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss2) {
+              if (pos === e) {
+                const val = 1 * 2;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss1) {
+              if (pos === e) {
+                const val = 1 * 1;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+          }
+        }
+        if ( tipo === tipos[16] ) {
+          if ( value === 'Verdadero') {
+            const poss3 = [27, 45, 54, 79, 97, 99, 108, 132];
+            const poss2 = [5, 8, 26, 36, 51, 53, 59, 65, 71, 72, 76, 83, 96, 109, 136, 154];
+            const poss1 = [25, 46, 56, 107, 110, 139, 155, 167, 168];
+            for (let e of poss3) {
+              if (pos === e) {
+                const val = 1 * 3;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss2) {
+              if (pos === e) {
+                const val = 1 * 2;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss1) {
+              if (pos === e) {
+                const val = 1 * 1;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+          } else if ( value === 'Falso') {
+            const poss3 = [];
+            const poss2 = [166];
+            const poss1 = [41, 86];
+            for (let e of poss3) {
+              if (pos === e) {
+                const val = 1 * 3;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss2) {
+              if (pos === e) {
+                const val = 1 * 2;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss1) {
+              if (pos === e) {
+                const val = 1 * 1;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+          }
+        }
+        if ( tipo === tipos[17] ) {
+          if ( value === 'Verdadero') {
+            const poss3 = [17, 87, 119, 157];
+            const poss2 = [18, 73, 95, 97, 105, 109, 144, 175];
+            const poss1 = [22, 23, 25, 27, 35, 40, 46, 54, 65, 70, 80, 93, 96, 103 104, 104, 108, 111, 114, 117, 125, 128, 130, 135, 137, 149, 149, 155, 159, 162, 171];
+            for (let e of poss3) {
+              if (pos === e) {
+                const val = 1 * 3;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss2) {
+              if (pos === e) {
+                const val = 1 * 2;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss1) {
+              if (pos === e) {
+                const val = 1 * 1;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+          } else if ( value === 'Falso') {
+            const poss3 = [];
+            const poss2 = [52, 122];
+            const poss1 = [8];
+            for (let e of poss3) {
+              if (pos === e) {
+                const val = 1 * 3;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss2) {
+              if (pos === e) {
+                const val = 1 * 2;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss1) {
+              if (pos === e) {
+                const val = 1 * 1;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+          }
+        }
+        if ( tipo === tipos[18] ) {
+          if ( value === 'Verdadero') {
+            const poss3 = [35, 78, 105, 140, 144, 175];
+            const poss2 = [1, 7, 9, 20, 22, 40, 43, 58, 73, 80, 82, 86, 91, 92, 95, 103, 115, 117, 129, 162];
+            const poss1 = [6, 12, 14, 30, 32, 44, 50, 55, 60, 66, 89, 93, 94, 101, 104, 111, 113, 114, 116, 120, 123, 125, 128, 130, 137, 146, 155, 165, 166, 171, 172];
+            for (let e of poss3) {
+              if (pos === e) {
+                const val = 1 * 3;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss2) {
+              if (pos === e) {
+                const val = 1 * 2;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss1) {
+              if (pos === e) {
+                const val = 1 * 1;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+          } else if ( value === 'Falso') {
+            const poss3 = [];
+            const poss2 = [];
+            const poss1 = [61];
+            for (let e of poss3) {
+              if (pos === e) {
+                const val = 1 * 3;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss2) {
+              if (pos === e) {
+                const val = 1 * 2;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss1) {
+              if (pos === e) {
+                const val = 1 * 1;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+          }
+        }
+        if ( tipo === tipos[19] ) {
+          if ( value === 'Verdadero') {
+            const poss3 = [98, 109, 124, 127, 160, 167];
+            const poss2 = [38, 68, 69, 77, 80, 83, 85, 102, 112, 115, 120, 146, 164];
+            const poss1 = [3, 8, 13, 19, 23, 24, 29, 31, 74, 82, 141, 147, 156, 161];
+            for (let e of poss3) {
+              if (pos === e) {
+                const val = 1 * 3;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss2) {
+              if (pos === e) {
+                const val = 1 * 2;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss1) {
+              if (pos === e) {
+                const val = 1 * 1;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+          } else if ( value === 'Falso') {
+            const poss3 = [];
+            const poss2 = [];
+            const poss1 = [];
+            for (let e of poss3) {
+              if (pos === e) {
+                const val = 1 * 3;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss2) {
+              if (pos === e) {
+                const val = 1 * 2;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss1) {
+              if (pos === e) {
+                const val = 1 * 1;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+          }
+        }
+        if ( tipo === tipos[20] ) {
+          if ( value === 'Verdadero') {
+            const poss3 = [5, 26, 36, 53, 59, 76, 136];
+            const poss2 = [33, 45, 47, 50, 56, 72, 79, 96, 108, 109];
+            const poss1 = [19, 51, 54, 57, 58, 65, 67, 81, 95, 99, 110, 117, 154];
+            for (let e of poss3) {
+              if (pos === e) {
+                const val = 1 * 3;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss2) {
+              if (pos === e) {
+                const val = 1 * 2;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss1) {
+              if (pos === e) {
+                const val = 1 * 1;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+          } else if ( value === 'Falso') {
+            const poss3 = [];
+            const poss2 = [];
+            const poss1 = [];
+            for (let e of poss3) {
+              if (pos === e) {
+                const val = 1 * 3;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss2) {
+              if (pos === e) {
+                const val = 1 * 2;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss1) {
+              if (pos === e) {
+                const val = 1 * 1;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+          }
+        }
+        if ( tipo === tipos[21] ) {
+          if ( value === 'Verdadero') {
+            const poss3 = [80, 100, 123];
+            const poss2 = [16, 24, 38, 69, 84, 85, 98, 131, 146, 164];
+            const poss1 = [15, 32, 39, 74, 89, 112, 126, 138, 143];
+            for (let e of poss3) {
+              if (pos === e) {
+                const val = 1 * 3;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss2) {
+              if (pos === e) {
+                const val = 1 * 2;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss1) {
+              if (pos === e) {
+                const val = 1 * 1;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+          } else if ( value === 'Falso') {
+            const poss3 = [];
+            const poss2 = [];
+            const poss1 = [];
+            for (let e of poss3) {
+              if (pos === e) {
+                const val = 1 * 3;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss2) {
+              if (pos === e) {
+                const val = 1 * 2;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss1) {
+              if (pos === e) {
+                const val = 1 * 1;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+          }
+        }
+        if ( tipo === tipos[22] ) {
+          if ( value === 'Verdadero') {
+            const poss3 = [];
+            const poss2 = [];
+            const poss1 = [4, 14, 34, 39, 60, 61, 75, 78, 86, 88, 89, 93, 103, 106, 122, 125, 126, 137, 138, 149, 153, 159, 166];
+            for (let e of poss3) {
+              if (pos === e) {
+                const val = 1 * 3;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss2) {
+              if (pos === e) {
+                const val = 1 * 2;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss1) {
+              if (pos === e) {
+                const val = 1 * 1;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+          } else if ( value === 'Falso') {
+            const poss3 = [];
+            const poss2 = [];
+            const poss1 = [];
+            for (let e of poss3) {
+              if (pos === e) {
+                const val = 1 * 3;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss2) {
+              if (pos === e) {
+                const val = 1 * 2;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss1) {
+              if (pos === e) {
+                const val = 1 * 1;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+          }
+        }
+        if ( tipo === tipos[23] ) {
+          if ( value === 'Verdadero') {
+            const poss3 = [];
+            const poss2 = [];
+            const poss1 = [3, 5, 8, 18, 23, 24, 25, 26, 27, 33, 36, 43, 45, 49, 50, 51, 53, 54, 58, 59, 63, 66, 67, 68, 71, 72, 76, 79, 82, 96, 97, 99, 100, 102, 108, 110, 114, 115, 117, 118, 120, 128, 132, 136, 158, 167];
+            for (let e of poss3) {
+              if (pos === e) {
+                const val = 1 * 3;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss2) {
+              if (pos === e) {
+                const val = 1 * 2;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss1) {
+              if (pos === e) {
+                const val = 1 * 1;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+          } else if ( value === 'Falso') {
+            const poss3 = [];
+            const poss2 = [];
+            const poss1 = [];
+            for (let e of poss3) {
+              if (pos === e) {
+                const val = 1 * 3;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss2) {
+              if (pos === e) {
+                const val = 1 * 2;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss1) {
+              if (pos === e) {
+                const val = 1 * 1;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+          }
+        }
+        if ( tipo === tipos[24] ) {
+          if ( value === 'Verdadero') {
+            const poss3 = [];
+            const poss2 = [];
+            const poss1 = [62, 90, 152, 169];
+            for (let e of poss3) {
+              if (pos === e) {
+                const val = 1 * 3;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss2) {
+              if (pos === e) {
+                const val = 1 * 2;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+            for (let e of poss1) {
+              if (pos === e) {
+                const val = 1 * 1;
+                const agregar = Object.assign({}, results4, {[question]: val });
+                this.setState({ results4: agregar });
+              }
+            }
+          } else if ( value === 'Falso') {
+            const poss3 = [];
+            const poss2 = [];
+            const poss1 = [];
             for (let e of poss3) {
               if (pos === e) {
                 const val = 1 * 3;
