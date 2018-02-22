@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 22-02-2018 a las 10:02:05
+-- Tiempo de generación: 22-02-2018 a las 21:58:00
 -- Versión del servidor: 5.7.19
 -- Versión de PHP: 5.6.31
 
@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `grupo` (
   `name` varchar(45) DEFAULT NULL,
   `num_alumnos` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `grupo`
@@ -1854,7 +1854,7 @@ CREATE TABLE IF NOT EXISTS `resultado` (
 INSERT INTO `resultado` (`id`, `test`, `descripcion`, `date`, `alumno_idalumno`, `name`) VALUES
 (1, 'Test del Estres', 'Descripcion', '2018-02-15', 1, 'Resultado 1'),
 (2, 'Test del Estres', 'descripcion', '2018-02-23', 2, 'test'),
-(3, 'Test del Estres', '', NULL, 3, 'Test del Estres'),
+(3, 'Test del Millon', '', '2018-02-22', 3, 'Test del Estres'),
 (4, 'Test del Millon', '', '2018-02-22', 4, 'asdasd');
 
 -- --------------------------------------------------------
@@ -2005,7 +2005,7 @@ CREATE TABLE IF NOT EXISTS `valores` (
   PRIMARY KEY (`id`),
   KEY `fk_valores_resultados` (`resultado_id`),
   KEY `valores_name` (`value`)
-) ENGINE=MyISAM AUTO_INCREMENT=115 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=1156 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `valores`
@@ -2038,31 +2038,56 @@ INSERT INTO `valores` (`id`, `resultado_id`, `tipo`, `value`, `descripcion`) VAL
 (24, 2, 'N', 3, 'Posee una Negación alta'),
 (25, 2, 'CI', 1, 'Posee Conductas Inadecuadas bajas'),
 (26, 2, 'D', 2, 'Posee una Distracción promedio'),
+(1131, 3, 'Z', 63, ''),
+(1132, 3, 'X', 84, ''),
+(1133, 3, '2', 89, ''),
+(1134, 3, '1', 79, ''),
+(1135, 3, 'Y', 63, ''),
+(1136, 3, '6B', 77, ''),
+(1137, 3, '7', 82, ''),
+(1138, 3, '3', 81, ''),
+(1139, 3, '4', 81, ''),
+(1140, 3, '5', 78, ''),
+(1141, 3, '6A', 80, ''),
+(1142, 3, 'C', 60, ''),
+(1143, 3, '8B', 108, ''),
+(1144, 3, 'S', 67, ''),
+(1145, 3, '8A', 67, ''),
+(1146, 3, 'P', 60, ''),
+(1147, 3, 'A', 84, ''),
+(1148, 3, 'D', 71, ''),
+(1149, 3, 'H', 59, ''),
+(1150, 3, 'N', 60, ''),
+(1151, 3, 'SS', 77, ''),
+(1152, 3, 'B', 73, ''),
+(1153, 3, 'CC', 70, ''),
+(1154, 3, 'T', 74, ''),
+(1155, 3, 'PP', 65, ''),
 (90, 4, 'Y', 71, ''),
-(91, 4, 'X', 100, ''),
-(92, 4, '2', 94, ''),
-(93, 4, 'Z', 52, ''),
-(94, 4, '1', 88, ''),
-(95, 4, '6B', 97, ''),
-(96, 4, '4', 93, ''),
-(97, 4, '3', 69, ''),
-(98, 4, '5', 66, ''),
-(99, 4, '8A', 111, ''),
-(100, 4, '7', 68, ''),
-(101, 4, '6A', 106, ''),
-(102, 4, '8B', 83, ''),
+(89, 4, 'X', 100, ''),
+(93, 4, '2', 94, ''),
+(91, 4, 'Z', 52, ''),
+(92, 4, '1', 88, ''),
+(98, 4, '6B', 97, ''),
+(95, 4, '4', 93, ''),
+(94, 4, '3', 69, ''),
+(96, 4, '5', 66, ''),
+(100, 4, '8A', 111, ''),
+(99, 4, '7', 68, ''),
+(97, 4, '6A', 106, ''),
+(101, 4, '8B', 83, ''),
 (103, 4, 'S', 91, ''),
 (104, 4, 'C', 77, ''),
-(105, 4, 'A', 2, ''),
-(106, 4, 'P', 104, ''),
-(107, 4, 'D', 31, ''),
+(106, 4, 'A', 2, ''),
+(105, 4, 'P', 104, ''),
+(109, 4, 'D', 31, ''),
 (108, 4, 'N', 84, ''),
-(109, 4, 'H', 47, ''),
+(107, 4, 'H', 47, ''),
 (110, 4, 'B', 60, ''),
-(111, 4, 'SS', 78, ''),
-(112, 4, 'T', 88, ''),
-(113, 4, 'PP', 90, ''),
-(114, 4, 'CC', 68, '');
+(112, 4, 'SS', 78, ''),
+(111, 4, 'T', 88, ''),
+(114, 4, 'PP', 90, ''),
+(113, 4, 'CC', 68, '');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
