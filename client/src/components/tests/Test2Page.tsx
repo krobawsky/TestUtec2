@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { Link } from 'react-router';
 import { url, submitForm } from '../../util';
 
@@ -9,11 +10,12 @@ import RadioInput from '../form/RadioInput';
 import { IError, IRouterContext, ITest, IPregunta, IAlternativa } from '../../types';
 
 interface ITestPageProps {
-  params?: { testId?: string };
+  params?: { resultadoId?: string };
 }
 
 interface ITestPageState {
   test?: ITest;
+  resultadoId?: string;
 }
 
 export default class Test2Page extends React.Component<ITestPageProps, ITestPageState> {
@@ -25,9 +27,9 @@ export default class Test2Page extends React.Component<ITestPageProps, ITestPage
   }
 
   componentDidMount() {
-    const requestUrl = url('api/tests/2');
 
-    fetch(requestUrl)
+    const fetchUrl = url('api/tests/2');
+    fetch(fetchUrl)
         .then(response => response.json())
         .then(test => { console.log('test', test); this.setState({ test }); });
   }
@@ -40,7 +42,7 @@ export default class Test2Page extends React.Component<ITestPageProps, ITestPage
 
   render() {
     const { test } = this.state;
-
+    const { params } = this.props;
     if (!test) {
       return <h2>No test loaded</h2>;
     }
@@ -48,7 +50,7 @@ export default class Test2Page extends React.Component<ITestPageProps, ITestPage
     return (
       <span>
         <TestInformation test={test} />
-        <Test2Preguntas params={test.preguntas}/>
+        <Test2Preguntas params={test.preguntas} resultadoId={params.resultadoId}/>
       </span>
     );
   }

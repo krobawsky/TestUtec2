@@ -6,9 +6,6 @@ import { url, submitForm } from '../../util';
 import TestInformation from './TestInformation';
 import TestPreguntas from './TestPreguntas';
 
-// import '../../../public/js/materialize.js';
-// import '../../../public/js/materialize.min.js';
-
 import RadioInput from '../form/RadioInput';
 import { IError, IRouterContext, ITest, IPregunta, IAlternativa } from '../../types';
 
@@ -31,8 +28,8 @@ export default class TestPage extends React.Component<ITestPageProps, ITestPageS
 
   componentDidMount() {
 
-      const fetchUrl = url(`api/tests/1`);
-      fetch(fetchUrl)
+    const fetchUrl = url(`api/tests/1`);
+    fetch(fetchUrl)
         .then(response => response.json())
         .then(test => { console.log('test', test); this.setState({ test }); });
   }

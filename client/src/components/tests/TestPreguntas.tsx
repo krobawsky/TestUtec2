@@ -143,7 +143,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
   onSubmit(event) {
     event.preventDefault();
 
-     let resultadoId = this.props.resultadoId;
+    let resultadoId = this.props.resultadoId;
 
     const { editableAlter, resultsTotal, results1, results2, results3, results4, results5, results6, results7, results8, results9, results10, results11, results12, results13 } = this.state;
 
@@ -190,18 +190,12 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
         if (num === 0) {
           // const valId = Math.floor(Math.random() * 999999); // Id
           const total = Object.values(results1).reduce((a, b) => a + b); // Total
-          let desc = 'Posee un Afrontamiento Directo promedio'; // Desdcription
-          if (total < 2 ) {
-            desc = 'Posee un Afrontamiento Directo muy bajo';
-          } else  if (total > 2 ) {
-            desc = 'Posee un Afrontamiento Directomuy alto';
-          }
+          let desc = 'Realización de una acción directa y racional para solucionar el problema.'; // Desdcription
           const valuableRequest: IValoresRequest = {
             tipo: 'AD',
             value: +total,
             descripcion: desc
           };
-          console.log (valuableRequest);
           // Post
           const url = 'api/tests/results/' + resultadoId + '/values';
           submitForm('POST', url, valuableRequest, (status, response) => {
@@ -214,18 +208,12 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
         }
         if (num === 1) {
           const total = Object.values(results2).reduce((a, b) => a + b);
-          let desc = 'Posee una Planificación de Actividades promedio';
-          if (total < 2 ) {
-            desc = 'Posee una Planificación de Actividades muy bajo';
-          } else  if (total > 2 ) {
-            desc = 'Posee una Planificación de Actividades muy alto';
-          }
+          let desc = 'Análisis racional del problema para generar estrategias que puedan alterar la situación problema.';
           const valuableRequest: IValoresRequest = {
             tipo: 'PA',
             value: +total,
             descripcion: desc
           };
-          console.log (valuableRequest);
           // Post
           const url = 'api/tests/results/' + resultadoId + '/values';
           submitForm('POST', url, valuableRequest, (status, response) => {
@@ -238,18 +226,12 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
         }
         if (num === 2) {
           const total = Object.values(results3).reduce((a, b) => a + b);
-          let desc = 'Posee una Superación de Actividades Competitivas promedio';
-          if (total < 2 ) {
-            desc = 'Posee una Superación de Actividades Competitivas muy bajo';
-          } else  if (total > 2 ) {
-            desc = 'Posee una Superación de Actividades Competitivas muy alto';
-          }
+          let desc = 'Búsqueda de soluciones centrándose exclusivamente en el problema objetivo.';
           const valuableRequest: IValoresRequest = {
             tipo: 'SAC',
             value: +total,
             descripcion: desc
           };
-          console.log (valuableRequest);
           // Post
           const url = 'api/tests/results/' + resultadoId + '/values';
           submitForm('POST', url, valuableRequest, (status, response) => {
@@ -262,18 +244,12 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
         }
         if (num === 3) {
           const total = Object.values(results4).reduce((a, b) => a + b);
-          let desc = 'Posee una Retracción del afrontamiento promedio';
-          if (total < 2 ) {
-            desc = 'Posee una Retracción del afrontamiento muy bajo';
-          } else  if (total > 2 ) {
-            desc = 'Posee una Retracción del afrontamiento muy alto';
-          }
+          let desc = 'Pensamientos distractivos para evitar pensar en el problema.';
           const valuableRequest: IValoresRequest = {
             tipo: 'RA',
             value: +total,
             descripcion: desc
           };
-          console.log (valuableRequest);
           // Post
           const url = 'api/tests/results/' + resultadoId + '/values';
           submitForm('POST', url, valuableRequest, (status, response) => {
@@ -285,20 +261,13 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           });
         }
         if (num === 4) {
-          const valId = Math.floor(Math.random() * 999999);
           const total = Object.values(results5).reduce((a, b) => a + b);
-          let desc = 'Posee una Búsqueda de soporte social promedio';
-          if (total < 2 ) {
-            desc = 'Posee una Búsqueda de soporte social muy bajo';
-          } else  if (total > 2 ) {
-            desc = 'Posee una Búsqueda de soporte social muy alto';
-          }
+          let desc = 'Buscar información y consejo en los demás sobre las posibles soluciones al problema.';
           const valuableRequest: IValoresRequest = {
             tipo: 'BSS',
             value: +total,
             descripcion: desc
           };
-          console.log (valuableRequest);
           // Post
           const url = 'api/tests/results/' + resultadoId + '/values';
           submitForm('POST', url, valuableRequest, (status, response) => {
@@ -310,20 +279,13 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           });
         }
         if (num === 5) {
-          const valId = Math.floor(Math.random() * 999999);
           const total = Object.values(results6).reduce((a, b) => a + b);
-          let desc = 'Posee una Búsqueda de soporte emocional promedio';
-          if (total < 2 ) {
-            desc = 'Posee una Búsqueda de soporte emocional muy bajo';
-          } else  if (total > 2 ) {
-            desc = 'Posee una Búsqueda de soporte emocional muy alto';
-          }
+          let desc = 'Búsqueda de comprensión en los demás sobre la situación problema.';
           const valuableRequest: IValoresRequest = {
             tipo: 'BSE',
             value: +total,
             descripcion: desc
           };
-          console.log (valuableRequest);
           // Post
           const url = 'api/tests/results/' + resultadoId + '/values';
           submitForm('POST', url, valuableRequest, (status, response) => {
@@ -335,20 +297,13 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           });
         }
         if (num === 6) {
-          const valId = Math.floor(Math.random() * 999999);
           const total = Object.values(results7).reduce((a, b) => a + b);
-          let desc = 'Posee una Reinterpretación positiva de la experiencia promedio';
-          if (total < 2 ) {
-            desc = 'Posee una Reinterpretación positiva de la experiencia bajo';
-          } else  if (total > 2 ) {
-            desc = 'Posee una Reinterpretación positiva de la experiencia muy alto';
-          }
+          let desc = 'Afrontamiento activo enfocado a crear un nuevo significado a la situación problema, intentando sacar la parte positiva.';
           const valuableRequest: IValoresRequest = {
             tipo: 'RPE',
             value: +total,
             descripcion: desc
           };
-          console.log (valuableRequest);
           // Post
           const url = 'api/tests/results/' + resultadoId + '/values';
           submitForm('POST', url, valuableRequest, (status, response) => {
@@ -360,20 +315,13 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           });
         }
         if (num === 7) {
-          const valId = Math.floor(Math.random() * 999999);
           const total = Object.values(results8).reduce((a, b) => a + b);
-          let desc = 'Posee una Aceptación promedio';
-          if (total < 2 ) {
-            desc = 'Posee una Aceptación bajo';
-          } else  if (total > 2 ) {
-            desc = 'Posee una Aceptación muy alto';
-          }
+          let desc = 'Aceptación de la situación negativa y de las consecuencias en la vida del sujeto.';
           const valuableRequest: IValoresRequest = {
             tipo: 'A',
             value: +total,
             descripcion: desc
           };
-          console.log (valuableRequest);
           // Post
           const url = 'api/tests/results/' + resultadoId + '/values';
           submitForm('POST', url, valuableRequest, (status, response) => {
@@ -385,20 +333,13 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           });
         }
         if (num === 8) {
-          const valId = Math.floor(Math.random() * 999999);
           const total = Object.values(results9).reduce((a, b) => a + b);
-          let desc = 'Posee una Retomo a la religión promedio';
-          if (total < 2 ) {
-            desc = 'Posee una Retomo a la religión bajo';
-          } else  if (total > 2 ) {
-            desc = 'Posee una Retomo a la religión muy alto';
-          }
+          let desc = 'Búsqueda de consuelo en un poder superior.';
           const valuableRequest: IValoresRequest = {
             tipo: 'RR',
             value: +total,
             descripcion: desc
           };
-          console.log (valuableRequest);
           // Post
           const url = 'api/tests/results/' + resultadoId + '/values';
           submitForm('POST', url, valuableRequest, (status, response) => {
@@ -410,20 +351,13 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           });
         }
         if (num === 9) {
-          const valId = Math.floor(Math.random() * 999999);
           const total = Object.values(results10).reduce((a, b) => a + b);
-          let desc = 'Posee una Análisis de las emociones promedio';
-          if (total < 2 ) {
-            desc = 'Posee una Análisis de las emociones bajo';
-          } else  if (total > 2 ) {
-            desc = 'Posee una Análisis de las emociones muy alto';
-          }
+          let desc = 'Regularización de los recursos para expresar u ocultar nuestros sentimientos.';
           const valuableRequest: IValoresRequest = {
             tipo: 'AE',
             value: +total,
             descripcion: desc
           };
-          console.log (valuableRequest);
           // Post
           const url = 'api/tests/results/' + resultadoId + '/values';
           submitForm('POST', url, valuableRequest, (status, response) => {
@@ -435,20 +369,13 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           });
         }
         if (num === 10) {
-          const valId = Math.floor(Math.random() * 999999);
           const total = Object.values(results11).reduce((a, b) => a + b);
-          let desc = 'Posee una Negación promedio';
-          if (total < 2 ) {
-            desc = 'Posee una Negación bajo';
-          } else  if (total > 2 ) {
-            desc = 'Posee una Negación muy alto';
-          }
+          let desc = 'Ausencia de aceptación del problema, por lo que se evita distorsionando la realidad para que su valoración sea acorde con nuestra valoración.';
           const valuableRequest: IValoresRequest = {
             tipo: 'N',
             value: +total,
             descripcion: desc
           };
-          console.log (valuableRequest);
           // Post
           const url = 'api/tests/results/' + resultadoId + '/values';
           submitForm('POST', url, valuableRequest, (status, response) => {
@@ -460,20 +387,13 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           });
         }
         if (num === 11) {
-          const valId = Math.floor(Math.random() * 999999);
           const total = Object.values(results12).reduce((a, b) => a + b);
-          let desc = 'Posee una Conductas inadecuadas promedio';
-          if (total < 2 ) {
-            desc = 'Posee una Conductas inadecuadas bajo';
-          } else  if (total > 2 ) {
-            desc = 'Posee una Conductas inadecuadas muy alto';
-          }
+          let desc = 'Consumo de drogas, alcohol, conductas que ponen en riesgo la integra del sujeto.';
           const valuableRequest: IValoresRequest = {
             tipo: 'CI',
             value: +total,
             descripcion: desc
           };
-          console.log (valuableRequest);
           // Post
           const url = 'api/tests/results/' + resultadoId + '/values';
           submitForm('POST', url, valuableRequest, (status, response) => {
@@ -485,20 +405,13 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           });
         }
         if (num === 12) {
-          const valId = Math.floor(Math.random() * 999999);
           const total = Object.values(results13).reduce((a, b) => a + b);
-          let desc = 'Posee una Distracción promedio';
-          if (total < 2 ) {
-            desc = 'Posee una Distracción bajo';
-          } else  if (total > 2 ) {
-            desc = 'Posee una Distracción muy alto';
-          }
+          let desc = 'Concentrarse en otros elementos y evitar/postergar enfrentar el conflicto.';
           const valuableRequest: IValoresRequest = {
             tipo: 'D',
             value: +total,
             descripcion: desc
           };
-          console.log (valuableRequest);
           // Post
           const url = 'api/tests/results/' + resultadoId + '/values';
           submitForm('POST', url, valuableRequest, (status, response) => {

@@ -21,7 +21,6 @@ public class Valores extends BaseEntity {
     @Column(name = "value")
     private Integer value;
     
-    @NotEmpty
     @Column(name = "descripcion")
     private String descripcion;
     

@@ -7,3 +7,5 @@ target/*
 /target
 npm-debug.log
 /bin/
+/.metadata/
+/.metadata/
