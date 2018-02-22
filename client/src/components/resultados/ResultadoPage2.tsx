@@ -14,7 +14,7 @@ import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Referenc
  import * as jsPDF from '../../../node_modules/jspdf';
 
 import ResultadoInformation from './ResultadoInformation';
-import ResultadoGraficos from './ResultadoGraficos';
+import ResultadoGraficos2 from './ResultadoGraficos2';
 
 import { IResultado } from '../../types';
 
@@ -63,10 +63,10 @@ export default class ResultPage extends React.Component<IResultadoPageProps, IRe
         <div className='row' id='divToPrint'>
           <div className='col s12 m4 l3 center'>
             <ResultadoInformation resultado={resultado} />
-            <Link className='waves-effect waves-light btn red' to={`/alumnos/${params.alumnoId}/resultados/${params.resultadoId}/print`}><i className='material-icons right'>picture_as_pdf</i>Descargar</Link>
+      <Link className='waves-effect waves-light btn red' to={`/alumnos/${params.alumnoId}/resultados/${params.resultadoId}/print`}><i className='material-icons right'>picture_as_pdf</i>Descargar</Link>
           </div>
           <div className='col s12 m8 l9'>
-            <ResultadoGraficos resultado={resultado} />
+            <ResultadoGraficos2 resultado={resultado} />
           </div>
         </div>
       </span>

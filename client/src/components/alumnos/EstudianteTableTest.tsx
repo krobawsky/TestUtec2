@@ -32,7 +32,7 @@ export default ({alumno}: { alumno: IAlumno }) => (
                <td>
             { resultado.test === 'Test del Estres' ? (
    <a href={`/student/tests/${resultado.id}/estres`} className='btn-floating btn-small waves-effect waves-light yellow'><i className='material-icons'>edit</i></a>
-            ) : ( resultado.test === 'Test del Million' ? (
+            ) : ( resultado.test === 'Test del Millon' ? (
   <a href={`/student/tests/${resultado.id}/million`} className='btn-floating btn-small waves-effect waves-light yellow'><i className='material-icons'>edit</i></a>
                 ) : (
 <a href={`/student/tests/${resultado.id}/baron`} className='btn-floating btn-small waves-effect waves-light yellow'><i className='material-icons'>edit</i></a>

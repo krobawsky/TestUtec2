@@ -36,7 +36,13 @@ export default ({alumno}: { alumno: IAlumno }) => (
           </ResponsiveContainer>
         </div>
         <div className='card-action'>
+          { resultado.test === 'Test del Estres' ? (
+            <Link to={`/alumnos/${alumno.id}/resultadoss/${resultado.id}`}>Ver más detalles</Link>
+            ) : ( resultado.test === 'Test del Millon' ? (
+            <Link to={`/alumnos/${alumno.id}/resultadosm/${resultado.id}`}>Ver más detalles</Link>
+            ) : (
             <Link to={`/alumnos/${alumno.id}/resultados/${resultado.id}`}>Ver más detalles</Link>
+          ))}
         </div>
       </div>
     ))}

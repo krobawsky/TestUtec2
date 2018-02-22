@@ -18,6 +18,7 @@ import FindAlumnosPage from './components/alumnos/FindAlumnosPage';
 import AlumnosPage from './components/alumnos/AlumnosPage';
 import EditResultadoPage from './components/resultados/EditResultadoPage';
 import ResultadoPage from './components/resultados/ResultadoPage';
+import ResultadoPage2 from './components/resultados/ResultadoPage2';
 import ResultadoPrint from './components/resultados/ResultadoPrint';
 import NotFoundPage from './components/NotFoundPage';
 import GruposPage from './components/grupos/GruposPage';
@@ -65,7 +66,8 @@ export default () => (
     <Route path='/alumnos/:alumnoId' component={AlumnosPage} />
     <Route path='/student/:alumnoId' component={EstudiantePage} />
     <Route path='/alumnos/:alumnoId/resultados/:resultadoId/edit' component={EditResultadoPage} />
-    <Route path='/alumnos/:alumnoId/resultados/:resultadoId' component={ResultadoPage} />
+    <Route path='/alumnos/:alumnoId/resultadoss/:resultadoId' component={ResultadoPage} />
+    <Route path='/alumnos/:alumnoId/resultadosm/:resultadoId' component={ResultadoPage2} />
     <Route path='/alumnos/:alumnoId/resultados/:resultadoId/print' component={ResultadoPrint} />
     <Route path='/grupos' component={GruposPage} />
     <Route path='/grupos/nuevo' component={NuevoGrupoPage} />

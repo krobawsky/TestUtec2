@@ -1046,7 +1046,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
           if ( value === 'Verdadero') {
             const poss3 = [17, 87, 119, 157];
             const poss2 = [18, 73, 95, 97, 105, 109, 144, 175];
-            const poss1 = [22, 23, 25, 27, 35, 40, 46, 54, 65, 70, 80, 93, 96, 103 104, 104, 108, 111, 114, 117, 125, 128, 130, 135, 137, 149, 149, 155, 159, 162, 171];
+            const poss1 = [22, 23, 25, 27, 35, 40, 46, 54, 65, 70, 80, 93, 96, 103, 104, 104, 108, 111, 114, 117, 125, 128, 130, 135, 137, 149, 149, 155, 159, 162, 171];
             for (let e of poss3) {
               if (pos === e) {
                 const val = 1 * 3;
@@ -2262,7 +2262,7 @@ export default class Pregunta extends React.Component<IPregProps, IResultState> 
 
       // For para los valores
       let num: number = 0;
-      for ( num = 0; num < 25; num++ ) {
+      for ( num = 0; num < 24; num++ ) {
 
         if (num === 0) {
           const total = resX; // Total
