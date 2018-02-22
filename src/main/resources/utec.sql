@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 21, 2018 at 06:52 PM
--- Server version: 5.7.14
--- PHP Version: 5.6.25
+-- Servidor: 127.0.0.1:3306
+-- Tiempo de generación: 22-02-2018 a las 10:02:05
+-- Versión del servidor: 5.7.19
+-- Versión de PHP: 5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,470 +19,25 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `try2ew`
+-- Base de datos: `utec`
 --
-CREATE DATABASE IF NOT EXISTS `try2ew` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `try2ew`;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `areas`
+-- Estructura de tabla para la tabla `alternativa`
 --
 
-CREATE TABLE `areas` (
-  `area_id` int(10) UNSIGNED NOT NULL,
-  `area` varchar(100) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `areas`
---
-
-INSERT INTO `areas` (`area_id`, `area`) VALUES
-(4, 'TI'),
-(2, 'Servicios'),
-(3, 'Comercial'),
-(5, 'SIG');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `entregas`
---
-
-CREATE TABLE `entregas` (
-  `entrega_id` int(11) NOT NULL,
-  `descripcion` text NOT NULL,
-  `tipo` varchar(100) NOT NULL,
-  `nombre` varchar(100) NOT NULL,
-  `apellido` varchar(100) NOT NULL,
-  `marca` varchar(45) DEFAULT NULL,
-  `cambio` varchar(45) DEFAULT NULL,
-  `destino` varchar(45) DEFAULT NULL,
-  `estado` varchar(45) DEFAULT NULL,
-  `motivo` varchar(45) DEFAULT NULL,
-  `observacion` varchar(45) DEFAULT NULL,
-  `serie` varchar(45) DEFAULT NULL,
-  `cod_inventario` varchar(45) DEFAULT NULL,
-  `fecha_entrega` date DEFAULT NULL,
-  `fecha_aprobacion` date DEFAULT NULL,
-  `dni` int(8) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `equipos`
---
-
-CREATE TABLE `equipos` (
-  `equipo_id` int(10) UNSIGNED NOT NULL,
-  `usuario_id` int(11) DEFAULT NULL,
-  `tipo` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `nombre_equipo` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `modelo` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `marca` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `numero_serie` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `cod_inventario` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `procesador` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `generacion` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `hhdd` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `ram` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `serie_bateria` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `serie_cargador` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `componente` varchar(30) COLLATE utf8_unicode_ci DEFAULT 'NO TIENE',
-  `c_marca` varchar(30) COLLATE utf8_unicode_ci DEFAULT 'NO TIENE',
-  `c_modelo` varchar(30) COLLATE utf8_unicode_ci DEFAULT 'NO TIENE',
-  `c_numero_serie` varchar(30) COLLATE utf8_unicode_ci DEFAULT 'NO TIENE',
-  `c_cod_inventario` varchar(30) COLLATE utf8_unicode_ci DEFAULT 'NO TIENE',
-  `descripcion` text COLLATE utf8_unicode_ci
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `equipos`
---
-
-INSERT INTO `equipos` (`equipo_id`, `usuario_id`, `tipo`, `nombre_equipo`, `modelo`, `marca`, `numero_serie`, `cod_inventario`, `procesador`, `generacion`, `hhdd`, `ram`, `serie_bateria`, `serie_cargador`, `componente`, `c_marca`, `c_modelo`, `c_numero_serie`, `c_cod_inventario`, `descripcion`) VALUES
-(36, 128, 'laptop', 'wwww', 'wwwwwwww', 'wwwwww', 'wwwwww', 'wwwww', 'wwww', 'wwww', 'wwwww', 'wwwww', 'wwwwww', 'wwwwwww', 'No tienew', 'No tiene', 'No tiene', 'No tiene', 'No tiene', NULL),
-(37, 133, 'laptop', 'ddd', 'dd', 'ddd', 'No tiene', 'No tiene', 'dd', 'ddd', 'dd', 'ddd', 'dd', 'ddd', 'No tiene', 'No tiene', 'No tiene', 'No tiene', 'No tiene', NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `impresoras`
---
-
-CREATE TABLE `impresoras` (
-  `impresora_id` int(11) UNSIGNED NOT NULL,
-  `area` varchar(30) NOT NULL,
-  `nombre_impresora` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `modelo` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `marca` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `numero_serie` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `cod_inventario` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `impresoras`
---
-
-INSERT INTO `impresoras` (`impresora_id`, `area`, `nombre_impresora`, `modelo`, `marca`, `numero_serie`, `cod_inventario`) VALUES
-(1, 'SIG', 'immmi', 'miimimi', 'immi', 'No tiene', 'No tiene');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `logos`
---
-
-CREATE TABLE `logos` (
-  `logo_id` int(11) NOT NULL,
-  `image` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `mantenimientos`
---
-
-CREATE TABLE `mantenimientos` (
-  `mantenimiento_id` int(11) NOT NULL,
-  `proyecto` varchar(100) NOT NULL DEFAULT 'ELECTROWERKE',
-  `fecha` date NOT NULL,
-  `hora` time NOT NULL,
-  `usuario` varchar(200) DEFAULT NULL,
-  `ubicacion` varchar(30) NOT NULL,
-  `area` varchar(30) NOT NULL,
-  `dni` int(8) NOT NULL,
-  `cargo` varchar(30) NOT NULL,
-  `cuenta` varchar(30) NOT NULL,
-  `nombre_equipo` varchar(30) NOT NULL,
-  `tipo` varchar(30) NOT NULL,
-  `marca` varchar(30) NOT NULL,
-  `modelo` varchar(30) NOT NULL,
-  `numero_serie` varchar(30) DEFAULT NULL,
-  `cod_inventario` varchar(30) DEFAULT NULL,
-  `procesador` varchar(30) NOT NULL,
-  `generacion` varchar(30) NOT NULL,
-  `hhdd` varchar(30) NOT NULL,
-  `ram` varchar(30) NOT NULL,
-  `serie_bateria` varchar(30) DEFAULT NULL,
-  `serie_cargador` varchar(30) DEFAULT NULL,
-  `c_tipo` varchar(30) DEFAULT NULL,
-  `c_marca` varchar(30) DEFAULT NULL,
-  `c_modelo` varchar(30) DEFAULT NULL,
-  `c_numero_serie` varchar(30) DEFAULT NULL,
-  `c_cod_inventario` varchar(30) DEFAULT NULL,
-  `local` char(2) DEFAULT NULL,
-  `red` char(2) DEFAULT NULL,
-  `formateo` char(2) DEFAULT NULL,
-  `validacion_software` char(2) DEFAULT NULL,
-  `limpieza` char(2) DEFAULT NULL,
-  `evaluacion` char(2) DEFAULT NULL,
-  `verificacion` char(2) DEFAULT NULL,
-  `optimizacion1` text,
-  `optimizacion2` text,
-  `antecedente` text,
-  `diagnostico` text,
-  `conclusion` text,
-  `fechareal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `img1` text,
-  `img2` text,
-  `img3` text,
-  `img4` text
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `mantenimientos`
---
-
-INSERT INTO `mantenimientos` (`mantenimiento_id`, `proyecto`, `fecha`, `hora`, `usuario`, `ubicacion`, `area`, `dni`, `cargo`, `cuenta`, `nombre_equipo`, `tipo`, `marca`, `modelo`, `numero_serie`, `cod_inventario`, `procesador`, `generacion`, `hhdd`, `ram`, `serie_bateria`, `serie_cargador`, `c_tipo`, `c_marca`, `c_modelo`, `c_numero_serie`, `c_cod_inventario`, `local`, `red`, `formateo`, `validacion_software`, `limpieza`, `evaluacion`, `verificacion`, `optimizacion1`, `optimizacion2`, `antecedente`, `diagnostico`, `conclusion`, `fechareal`, `img1`, `img2`, `img3`, `img4`) VALUES
-(31, 'ELECTROWERKE', '2017-08-10', '09:40:00', 'José Hernan Flores Panduro', 'San Isidro', 'Comercial', 7644337, 'Administrador de Proyectos', 'jflores', 'qq', 'laptop', 'q', 'q', 'q', 'q', 'q', 'q', 'q', 'q', 'q', 'q', 'q', 'q', 'q', 'q', 'q', 'No', 'No', 'No', 'No', 'No', 'No', 'No', '', NULL, '', '', '', '2017-08-10 14:40:06', NULL, NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `reporte_impresoras`
---
-
-CREATE TABLE `reporte_impresoras` (
-  `reporte_impresora_id` int(10) UNSIGNED NOT NULL,
-  `fecha` date NOT NULL,
-  `hora` time NOT NULL,
-  `usuario` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `area` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sede` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `nombre_impresora` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `modelo` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `marca` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `numero_serie` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `cod_inventario` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `diagn` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `raspon` char(2) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT 'No',
-  `golpe` char(2) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT 'No',
-  `ralla` char(2) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT 'No',
-  `presenta_otro` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `problema` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
-  `diagnostico` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
-  `solucion` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
-  `recomendacion` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
-  `fechareal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `item1` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `descripcion1` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `cantidad1` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `guia1` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `item2` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `descripcion2` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `cantidad2` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `guia2` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `item3` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `descripcion3` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `cantidad3` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `guia3` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `img1` text,
-  `img2` text,
-  `img3` text,
-  `img4` text
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `reportes`
---
-
-CREATE TABLE `reportes` (
-  `reporte_id` int(10) UNSIGNED NOT NULL,
-  `fecha` date NOT NULL,
-  `hora` time NOT NULL,
-  `usuario` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `area` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sede` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `nombre_equipo` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `modelo` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `marca` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `numero_serie` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `cod_inventario` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `diagn` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `raspon` char(2) COLLATE utf8_unicode_ci DEFAULT 'No',
-  `golpe` char(2) COLLATE utf8_unicode_ci DEFAULT 'No',
-  `ralla` char(2) COLLATE utf8_unicode_ci DEFAULT 'No',
-  `presenta_otro` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `problema` text COLLATE utf8_unicode_ci,
-  `diagnostico` text COLLATE utf8_unicode_ci,
-  `solucion` text COLLATE utf8_unicode_ci,
-  `recomendacion` text COLLATE utf8_unicode_ci,
-  `fechareal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `item1` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `descripcion1` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `cantidad1` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `guia1` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `item2` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `descripcion2` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `cantidad2` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `guia2` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `item3` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `descripcion3` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `cantidad3` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `guia3` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `img1` text COLLATE utf8_unicode_ci,
-  `img2` text COLLATE utf8_unicode_ci,
-  `img3` text COLLATE utf8_unicode_ci,
-  `img4` text COLLATE utf8_unicode_ci
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `reportes`
---
-
-INSERT INTO `reportes` (`reporte_id`, `fecha`, `hora`, `usuario`, `area`, `sede`, `nombre_equipo`, `modelo`, `marca`, `numero_serie`, `cod_inventario`, `diagn`, `raspon`, `golpe`, `ralla`, `presenta_otro`, `problema`, `diagnostico`, `solucion`, `recomendacion`, `fechareal`, `item1`, `descripcion1`, `cantidad1`, `guia1`, `item2`, `descripcion2`, `cantidad2`, `guia2`, `item3`, `descripcion3`, `cantidad3`, `guia3`, `img1`, `img2`, `img3`, `img4`) VALUES
-(1029, '2017-08-10', '14:51:15', '', NULL, '', '', '', '', NULL, NULL, 'Ambos', 'No', 'No', 'Si', '', 'sfasdf', 'sfsd', 'fsdfs', 'sdfsdf', '2017-08-10 19:51:56', '', '', '', '', '', '', '', '', '', '', '', '', '14881375_10211217887227439_353591585_o.jpg', 'IMG_4062.JPG', 'IMG_4228.JPG', 'IMG_4582.JPG');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
-CREATE TABLE `users` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@ew.com', '$2y$10$PoJo3koAqJwAVxQM7nITW.RGcTv2qS4Q0HN9fWZVcIaZCYC/fzvFq', 'xNSpluK4JuXsXb4CurgvfQmwNeNmSOmLVKzA2pu6VLopoUDAsmVSe1d8oiX7', '0000-00-00 00:00:00', '2017-08-10 23:51:27');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `usuarios`
---
-
-CREATE TABLE `usuarios` (
-  `usuario_id` int(10) UNSIGNED NOT NULL,
-  `nombre` varchar(120) COLLATE utf8_unicode_ci NOT NULL,
-  `apellido` varchar(120) COLLATE utf8_unicode_ci NOT NULL,
-  `dni` varchar(8) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(36) COLLATE utf8_unicode_ci NOT NULL,
-  `telefono` varchar(7) COLLATE utf8_unicode_ci NOT NULL,
-  `celular` varchar(9) COLLATE utf8_unicode_ci NOT NULL,
-  `cuenta` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
-  `sede` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `direccion` text COLLATE utf8_unicode_ci NOT NULL,
-  `distrito` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `cargo` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `area_id` int(10) UNSIGNED DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `usuarios`
---
-
-INSERT INTO `usuarios` (`usuario_id`, `nombre`, `apellido`, `dni`, `email`, `telefono`, `celular`, `cuenta`, `sede`, `direccion`, `distrito`, `cargo`, `area_id`) VALUES
-(128, 'aaaAA', 'kkAAAA', '12345678', 'kkAAA@GMAIL.COM', '1234567', '111111111', 'kkaaa', 'kkaaa', 'kkaaaaaaaaa 123', 'kkaaa kkaaa', 'kkaaaa', 4),
-(132, 'eeee', 'kkAAAA', '12345678', 'kkAAA@GMAIL.COM', '1234567', '111111111', 'kkaaa', 'kkaaa', 'kkaaaaaaaaa 123', 'kkaaa kkaaa', 'kkaaaa', 4),
-(133, 'dddd', 'kkAAAA', '12345678', 'kkAAA@GMAIL.COM', '1234567', '111111111', 'kkaaa', 'kkaaa', 'kkaaaaaaaaa 123', 'kkaaa kkaaa', 'kkaaaa', 4);
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `areas`
---
-ALTER TABLE `areas`
-  ADD PRIMARY KEY (`area_id`);
-
---
--- Indexes for table `entregas`
---
-ALTER TABLE `entregas`
-  ADD PRIMARY KEY (`entrega_id`);
-
---
--- Indexes for table `equipos`
---
-ALTER TABLE `equipos`
-  ADD PRIMARY KEY (`equipo_id`),
-  ADD KEY `usuario_ID_FK` (`usuario_id`);
-
---
--- Indexes for table `impresoras`
---
-ALTER TABLE `impresoras`
-  ADD PRIMARY KEY (`impresora_id`);
-
---
--- Indexes for table `logos`
---
-ALTER TABLE `logos`
-  ADD PRIMARY KEY (`logo_id`);
-
---
--- Indexes for table `mantenimientos`
---
-ALTER TABLE `mantenimientos`
-  ADD PRIMARY KEY (`mantenimiento_id`);
-
---
--- Indexes for table `reportes`
---
-ALTER TABLE `reportes`
-  ADD PRIMARY KEY (`reporte_id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_email_unique` (`email`);
-
---
--- Indexes for table `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`usuario_id`),
-  ADD KEY `usuarios_area_id_foreign` (`area_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `areas`
---
-ALTER TABLE `areas`
-  MODIFY `area_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `entregas`
---
-ALTER TABLE `entregas`
-  MODIFY `entrega_id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `equipos`
---
-ALTER TABLE `equipos`
-  MODIFY `equipo_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
---
--- AUTO_INCREMENT for table `impresoras`
---
-ALTER TABLE `impresoras`
-  MODIFY `impresora_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `logos`
---
-ALTER TABLE `logos`
-  MODIFY `logo_id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `mantenimientos`
---
-ALTER TABLE `mantenimientos`
-  MODIFY `mantenimiento_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
---
--- AUTO_INCREMENT for table `reportes`
---
-ALTER TABLE `reportes`
-  MODIFY `reporte_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1030;
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `usuarios`
---
-ALTER TABLE `usuarios`
-  MODIFY `usuario_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;--
--- Database: `utec`
---
-CREATE DATABASE IF NOT EXISTS `utec` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish2_ci;
-USE `utec`;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `alternativa`
---
-
-CREATE TABLE `alternativa` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `alternativa`;
+CREATE TABLE IF NOT EXISTS `alternativa` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `alternativa` varchar(20) NOT NULL,
-  `value` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `value` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `alternativa`
+-- Volcado de datos para la tabla `alternativa`
 --
 
 INSERT INTO `alternativa` (`id`, `alternativa`, `value`) VALUES
@@ -494,11 +51,12 @@ INSERT INTO `alternativa` (`id`, `alternativa`, `value`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `alumno`
+-- Estructura de tabla para la tabla `alumno`
 --
 
-CREATE TABLE `alumno` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `alumno`;
+CREATE TABLE IF NOT EXISTS `alumno` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `codigo` int(11) DEFAULT NULL,
   `password` varchar(6) DEFAULT NULL,
   `correo` varchar(45) DEFAULT NULL,
@@ -509,31 +67,37 @@ CREATE TABLE `alumno` (
   `first_name` varchar(20) NOT NULL,
   `last_name` varchar(20) NOT NULL,
   `telefono` int(9) NOT NULL,
-  `promedio` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `promedio` double NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `alumno`
+-- Volcado de datos para la tabla `alumno`
 --
 
 INSERT INTO `alumno` (`id`, `codigo`, `password`, `correo`, `ingreso`, `carrera`, `edad`, `genero`, `first_name`, `last_name`, `telefono`, `promedio`) VALUES
 (1, 105678, '123456', 'eleen@gmail.com', 2016, 'C15', 18, 'F', 'Stefanny', 'Aquino', 999165845, 19.5),
 (2, 108765, '123456', 'raul@gmail.com', 2015, 'C16', 20, 'M', 'Raul', 'Ramos', 5243519, 14.9),
-(3, 104567, '123456', 'maria@gmail.com', 2016, 'C15', 19, 'F', 'Maria', 'Perez', 0, 0);
+(3, 104567, '123456', 'maria@gmail.com', 2016, 'C15', 19, 'F', 'Maria', 'Perez', 0, 0),
+(4, 17344, '1234', 'rberrospi@gmail.com', 2016, 'c15', 18, 'M', 'Ricardo ', 'Berrospi', 933055740, 15);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `alumno_has_grupo`
+-- Estructura de tabla para la tabla `alumno_has_grupo`
 --
 
-CREATE TABLE `alumno_has_grupo` (
+DROP TABLE IF EXISTS `alumno_has_grupo`;
+CREATE TABLE IF NOT EXISTS `alumno_has_grupo` (
   `alumno_idalumno` int(11) NOT NULL,
-  `grupo_idgrupo` int(11) NOT NULL
+  `grupo_idgrupo` int(11) NOT NULL,
+  PRIMARY KEY (`alumno_idalumno`,`grupo_idgrupo`),
+  KEY `fk_alumno_has_grupo_grupo1_idx` (`grupo_idgrupo`),
+  KEY `fk_alumno_has_grupo_alumno1_idx` (`alumno_idalumno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `alumno_has_grupo`
+-- Volcado de datos para la tabla `alumno_has_grupo`
 --
 
 INSERT INTO `alumno_has_grupo` (`alumno_idalumno`, `grupo_idgrupo`) VALUES
@@ -545,17 +109,19 @@ INSERT INTO `alumno_has_grupo` (`alumno_idalumno`, `grupo_idgrupo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `grupo`
+-- Estructura de tabla para la tabla `grupo`
 --
 
-CREATE TABLE `grupo` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `grupo`;
+CREATE TABLE IF NOT EXISTS `grupo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
-  `num_alumnos` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `num_alumnos` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `grupo`
+-- Volcado de datos para la tabla `grupo`
 --
 
 INSERT INTO `grupo` (`id`, `name`, `num_alumnos`) VALUES
@@ -565,19 +131,23 @@ INSERT INTO `grupo` (`id`, `name`, `num_alumnos`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pregunta`
+-- Estructura de tabla para la tabla `pregunta`
 --
 
-CREATE TABLE `pregunta` (
+DROP TABLE IF EXISTS `pregunta`;
+CREATE TABLE IF NOT EXISTS `pregunta` (
   `id` int(11) NOT NULL,
   `test_id` int(11) NOT NULL,
   `tipo_id` int(11) NOT NULL,
   `pregunta` varchar(200) DEFAULT NULL,
-  `posicion` int(11) NOT NULL
+  `posicion` int(11) NOT NULL,
+  PRIMARY KEY (`id`,`test_id`),
+  KEY `fk_pregunta_test1_idx` (`test_id`),
+  KEY `fk_pregunta_tipo_idx` (`tipo_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `pregunta`
+-- Volcado de datos para la tabla `pregunta`
 --
 
 INSERT INTO `pregunta` (`id`, `test_id`, `tipo_id`, `pregunta`, `posicion`) VALUES
@@ -630,7 +200,7 @@ INSERT INTO `pregunta` (`id`, `test_id`, `tipo_id`, `pregunta`, `posicion`) VALU
 (50, 1, 8, 'Acepto que el problema ha sucedido', 47),
 (51, 1, 9, 'Rezo más de lo inusual', 48),
 (52, 1, 10, 'Me perturbo emocionalmente y estoy atento al problema', 49),
-(53, 1, 11, 'Me digo a mí mismo: "Esto no es real"', 50),
+(53, 1, 11, 'Me digo a mí mismo: \"Esto no es real\"', 50),
 (54, 1, 12, 'Disminuyo los esfuerzos que pongo para solucionar el problema', 51),
 (55, 1, 13, 'Duermo más de lo usual', 52),
 (56, 2, 14, 'Siempre sigo mis propias ideas en vez de hacer lo que otros esperan de mi', 1),
@@ -812,16 +382,19 @@ INSERT INTO `pregunta` (`id`, `test_id`, `tipo_id`, `pregunta`, `posicion`) VALU
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pregunta_alternativa`
+-- Estructura de tabla para la tabla `pregunta_alternativa`
 --
 
-CREATE TABLE `pregunta_alternativa` (
+DROP TABLE IF EXISTS `pregunta_alternativa`;
+CREATE TABLE IF NOT EXISTS `pregunta_alternativa` (
   `pregunta_id` int(11) NOT NULL,
-  `alternativa_id` int(11) NOT NULL
+  `alternativa_id` int(11) NOT NULL,
+  PRIMARY KEY (`pregunta_id`,`alternativa_id`),
+  KEY `fk_alternativa_pregunta` (`alternativa_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `pregunta_alternativa`
+-- Volcado de datos para la tabla `pregunta_alternativa`
 --
 
 INSERT INTO `pregunta_alternativa` (`pregunta_id`, `alternativa_id`) VALUES
@@ -1289,16 +862,19 @@ INSERT INTO `pregunta_alternativa` (`pregunta_id`, `alternativa_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pregunta_tipo`
+-- Estructura de tabla para la tabla `pregunta_tipo`
 --
 
-CREATE TABLE `pregunta_tipo` (
+DROP TABLE IF EXISTS `pregunta_tipo`;
+CREATE TABLE IF NOT EXISTS `pregunta_tipo` (
   `pregunta_id` int(11) NOT NULL,
-  `tipo_id` int(11) NOT NULL
+  `tipo_id` int(11) NOT NULL,
+  PRIMARY KEY (`pregunta_id`,`tipo_id`),
+  KEY `fk_tipo_pregunta` (`tipo_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `pregunta_tipo`
+-- Volcado de datos para la tabla `pregunta_tipo`
 --
 
 INSERT INTO `pregunta_tipo` (`pregunta_id`, `tipo_id`) VALUES
@@ -1306,37 +882,49 @@ INSERT INTO `pregunta_tipo` (`pregunta_id`, `tipo_id`) VALUES
 (56, 23),
 (56, 24),
 (56, 26),
+(56, 36),
 (57, 18),
 (57, 19),
 (57, 22),
 (57, 28),
+(58, 17),
 (58, 19),
 (58, 21),
 (58, 28),
+(58, 37),
+(59, 16),
 (59, 20),
 (59, 22),
 (59, 24),
 (59, 25),
 (59, 26),
+(60, 17),
 (60, 29),
 (60, 32),
 (60, 34),
+(60, 38),
 (61, 22),
 (61, 26),
 (61, 30),
+(61, 36),
 (62, 20),
 (62, 21),
 (62, 23),
 (62, 24),
 (62, 25),
 (62, 29),
+(62, 36),
+(63, 17),
 (63, 19),
 (63, 27),
 (63, 28),
 (63, 34),
+(63, 35),
+(63, 37),
 (64, 21),
 (64, 24),
 (64, 26),
+(64, 36),
 (65, 18),
 (65, 20),
 (65, 27),
@@ -1348,37 +936,49 @@ INSERT INTO `pregunta_tipo` (`pregunta_id`, `tipo_id`) VALUES
 (67, 24),
 (67, 26),
 (67, 30),
+(67, 36),
 (68, 18),
 (68, 28),
 (68, 31),
+(68, 37),
+(69, 16),
 (69, 18),
 (69, 19),
 (69, 21),
 (69, 22),
 (69, 28),
 (69, 33),
+(69, 36),
 (70, 22),
 (70, 23),
 (70, 30),
+(70, 39),
 (71, 22),
 (71, 26),
 (71, 27),
 (71, 30),
 (71, 31),
+(71, 39),
 (72, 33),
+(72, 35),
+(73, 17),
 (73, 27),
 (73, 31),
 (73, 32),
+(73, 35),
 (74, 18),
 (74, 19),
 (74, 21),
 (74, 28),
 (74, 33),
+(74, 37),
+(74, 38),
 (75, 18),
 (75, 21),
 (75, 23),
 (75, 25),
 (75, 33),
+(75, 36),
 (76, 19),
 (76, 20),
 (76, 24),
@@ -1391,13 +991,22 @@ INSERT INTO `pregunta_tipo` (`pregunta_id`, `tipo_id`) VALUES
 (77, 26),
 (77, 29),
 (77, 30),
+(77, 35),
+(77, 36),
+(78, 17),
 (78, 19),
 (78, 26),
 (78, 27),
 (78, 28),
 (78, 29),
+(78, 35),
+(78, 37),
+(79, 17),
 (79, 28),
 (79, 30),
+(79, 37),
+(79, 39),
+(80, 17),
 (80, 18),
 (80, 19),
 (80, 26),
@@ -1405,13 +1014,18 @@ INSERT INTO `pregunta_tipo` (`pregunta_id`, `tipo_id`) VALUES
 (80, 28),
 (80, 29),
 (80, 34),
+(80, 35),
+(81, 17),
 (81, 29),
 (81, 31),
 (81, 32),
 (81, 34),
+(81, 38),
+(82, 17),
 (82, 19),
 (82, 29),
 (82, 34),
+(82, 35),
 (83, 18),
 (83, 19),
 (83, 20),
@@ -1422,33 +1036,45 @@ INSERT INTO `pregunta_tipo` (`pregunta_id`, `tipo_id`) VALUES
 (83, 33),
 (84, 31),
 (84, 32),
+(84, 37),
 (85, 23),
 (85, 24),
 (85, 30),
+(85, 36),
 (86, 20),
 (86, 22),
 (86, 24),
 (86, 27),
 (86, 28),
 (86, 32),
+(86, 37),
 (87, 19),
 (87, 22),
 (87, 23),
 (87, 24),
 (87, 25),
 (87, 30),
+(87, 36),
+(87, 39),
+(88, 17),
 (88, 18),
 (88, 31),
 (88, 32),
+(88, 38),
+(89, 16),
 (89, 18),
 (89, 19),
 (89, 20),
 (89, 23),
 (90, 29),
+(90, 35),
+(90, 36),
+(91, 17),
 (91, 29),
 (91, 31),
 (91, 32),
 (91, 34),
+(91, 38),
 (92, 21),
 (92, 22),
 (92, 30),
@@ -1457,15 +1083,21 @@ INSERT INTO `pregunta_tipo` (`pregunta_id`, `tipo_id`) VALUES
 (93, 24),
 (93, 28),
 (93, 30),
+(93, 37),
+(93, 39),
+(94, 16),
 (94, 21),
 (94, 25),
 (94, 30),
+(94, 39),
 (95, 20),
 (95, 21),
 (95, 24),
 (95, 25),
 (95, 29),
 (95, 33),
+(95, 35),
+(95, 36),
 (96, 20),
 (96, 21),
 (96, 22),
@@ -1481,6 +1113,7 @@ INSERT INTO `pregunta_tipo` (`pregunta_id`, `tipo_id`) VALUES
 (97, 27),
 (97, 32),
 (97, 33),
+(98, 17),
 (98, 20),
 (98, 21),
 (98, 22),
@@ -1490,34 +1123,45 @@ INSERT INTO `pregunta_tipo` (`pregunta_id`, `tipo_id`) VALUES
 (98, 26),
 (98, 29),
 (98, 30),
+(98, 36),
 (99, 23),
 (99, 24),
 (99, 29),
 (99, 30),
+(99, 36),
+(100, 17),
 (100, 19),
 (100, 22),
 (100, 27),
 (100, 34),
+(100, 38),
 (101, 18),
 (101, 25),
 (101, 30),
 (101, 34),
+(101, 35),
 (102, 18),
 (102, 19),
 (102, 28),
+(102, 38),
 (103, 18),
 (103, 21),
 (103, 23),
 (103, 25),
 (103, 28),
+(104, 17),
 (104, 19),
 (104, 20),
 (104, 28),
+(105, 17),
 (105, 25),
 (105, 26),
 (105, 29),
 (105, 32),
 (105, 33),
+(105, 36),
+(105, 38),
+(106, 17),
 (106, 21),
 (106, 22),
 (106, 26),
@@ -1526,37 +1170,53 @@ INSERT INTO `pregunta_tipo` (`pregunta_id`, `tipo_id`) VALUES
 (106, 31),
 (106, 32),
 (106, 34),
+(106, 38),
+(107, 35),
+(108, 17),
 (108, 18),
 (108, 28),
 (108, 29),
 (108, 31),
 (108, 32),
 (108, 34),
+(108, 38),
+(109, 17),
 (109, 20),
 (109, 27),
 (109, 29),
 (109, 31),
 (109, 34),
+(109, 35),
+(109, 38),
 (110, 22),
 (110, 23),
 (110, 26),
 (110, 30),
+(110, 36),
 (111, 19),
 (111, 21),
 (111, 27),
 (111, 29),
 (111, 32),
 (111, 34),
+(111, 38),
 (112, 19),
 (112, 20),
 (112, 27),
 (112, 29),
+(112, 38),
+(113, 17),
 (113, 24),
 (113, 26),
 (113, 29),
 (113, 33),
+(113, 36),
+(113, 38),
+(114, 17),
 (114, 29),
 (114, 34),
+(114, 38),
+(115, 16),
 (115, 18),
 (115, 20),
 (115, 21),
@@ -1565,11 +1225,16 @@ INSERT INTO `pregunta_tipo` (`pregunta_id`, `tipo_id`) VALUES
 (115, 28),
 (115, 32),
 (115, 33),
+(115, 36),
+(116, 16),
 (116, 21),
 (116, 25),
 (116, 30),
 (116, 32),
+(116, 36),
+(117, 14),
 (117, 32),
+(118, 17),
 (118, 19),
 (118, 22),
 (118, 27),
@@ -1584,6 +1249,9 @@ INSERT INTO `pregunta_tipo` (`pregunta_id`, `tipo_id`) VALUES
 (120, 27),
 (120, 29),
 (120, 34),
+(120, 35),
+(120, 38),
+(121, 17),
 (121, 21),
 (121, 24),
 (121, 25),
@@ -1591,25 +1259,39 @@ INSERT INTO `pregunta_tipo` (`pregunta_id`, `tipo_id`) VALUES
 (121, 29),
 (121, 33),
 (121, 34),
+(121, 36),
+(122, 17),
 (122, 29),
 (122, 31),
 (122, 33),
+(122, 38),
+(123, 17),
 (123, 30),
+(123, 37),
 (124, 28),
+(124, 37),
+(124, 39),
+(125, 35),
+(125, 36),
+(126, 17),
 (126, 24),
 (126, 27),
 (126, 31),
 (126, 32),
 (126, 34),
+(127, 17),
 (127, 29),
 (127, 32),
 (127, 34),
+(127, 38),
 (128, 23),
 (128, 26),
 (128, 27),
 (128, 29),
 (128, 31),
 (128, 33),
+(128, 35),
+(128, 36),
 (129, 20),
 (129, 23),
 (129, 24),
@@ -1618,10 +1300,15 @@ INSERT INTO `pregunta_tipo` (`pregunta_id`, `tipo_id`) VALUES
 (129, 27),
 (129, 29),
 (129, 30),
+(129, 37),
+(129, 39),
+(130, 16),
 (130, 20),
 (130, 25),
 (130, 30),
+(131, 17),
 (131, 34),
+(131, 38),
 (132, 19),
 (132, 20),
 (132, 21),
@@ -1632,6 +1319,8 @@ INSERT INTO `pregunta_tipo` (`pregunta_id`, `tipo_id`) VALUES
 (132, 27),
 (132, 28),
 (132, 29),
+(132, 37),
+(133, 16),
 (133, 18),
 (133, 20),
 (133, 22),
@@ -1640,12 +1329,18 @@ INSERT INTO `pregunta_tipo` (`pregunta_id`, `tipo_id`) VALUES
 (133, 25),
 (133, 29),
 (133, 32),
+(134, 17),
 (134, 29),
 (134, 34),
+(134, 38),
 (135, 22),
 (135, 23),
 (135, 24),
 (135, 30),
+(135, 35),
+(135, 36),
+(135, 37),
+(135, 39),
 (136, 18),
 (136, 19),
 (136, 20),
@@ -1653,21 +1348,31 @@ INSERT INTO `pregunta_tipo` (`pregunta_id`, `tipo_id`) VALUES
 (136, 23),
 (136, 25),
 (136, 27),
+(136, 38),
+(137, 17),
 (137, 24),
 (137, 26),
 (137, 27),
 (137, 29),
+(137, 36),
+(137, 37),
+(137, 38),
 (138, 18),
 (138, 19),
 (138, 28),
 (138, 34),
+(138, 37),
 (139, 24),
 (139, 30),
+(139, 39),
 (140, 18),
 (140, 22),
 (140, 23),
 (140, 28),
 (140, 30),
+(140, 37),
+(140, 39),
+(141, 16),
 (141, 21),
 (141, 22),
 (141, 23),
@@ -1676,24 +1381,37 @@ INSERT INTO `pregunta_tipo` (`pregunta_id`, `tipo_id`) VALUES
 (141, 26),
 (141, 33),
 (141, 34),
+(141, 36),
 (142, 23),
+(142, 35),
+(143, 16),
 (143, 25),
+(144, 16),
 (144, 21),
 (144, 22),
 (144, 30),
 (144, 33),
+(144, 36),
+(144, 39),
+(145, 14),
 (146, 20),
 (146, 21),
 (146, 22),
 (146, 23),
 (146, 24),
 (146, 29),
+(146, 36),
 (147, 20),
 (147, 23),
 (147, 25),
+(147, 36),
+(148, 16),
 (148, 33),
+(148, 35),
+(148, 36),
 (149, 23),
 (149, 29),
+(149, 36),
 (150, 18),
 (150, 21),
 (150, 24),
@@ -1701,31 +1419,49 @@ INSERT INTO `pregunta_tipo` (`pregunta_id`, `tipo_id`) VALUES
 (150, 26),
 (150, 29),
 (150, 33),
+(150, 35),
+(150, 36),
+(150, 38),
+(151, 17),
 (151, 31),
 (151, 32),
 (151, 34),
+(151, 35),
+(151, 38),
+(152, 17),
 (152, 20),
 (152, 29),
 (152, 31),
 (152, 34),
+(152, 35),
 (153, 30),
 (153, 32),
 (153, 33),
+(153, 37),
+(153, 39),
+(154, 17),
 (154, 27),
 (154, 29),
 (154, 31),
 (154, 34),
+(154, 38),
+(155, 17),
 (155, 28),
 (155, 30),
+(155, 39),
 (156, 20),
 (156, 23),
 (156, 24),
 (156, 26),
 (156, 29),
 (156, 33),
+(156, 36),
+(157, 17),
 (157, 19),
 (157, 28),
 (157, 32),
+(157, 37),
+(158, 16),
 (158, 18),
 (158, 21),
 (158, 22),
@@ -1734,9 +1470,16 @@ INSERT INTO `pregunta_tipo` (`pregunta_id`, `tipo_id`) VALUES
 (158, 29),
 (158, 30),
 (158, 33),
+(158, 35),
+(158, 36),
 (159, 23),
 (159, 26),
 (159, 29),
+(159, 35),
+(159, 36),
+(160, 35),
+(160, 36),
+(161, 16),
 (161, 18),
 (161, 19),
 (161, 20),
@@ -1746,89 +1489,137 @@ INSERT INTO `pregunta_tipo` (`pregunta_id`, `tipo_id`) VALUES
 (162, 24),
 (162, 26),
 (162, 34),
+(163, 17),
 (163, 18),
 (163, 28),
 (163, 29),
 (163, 31),
 (163, 34),
+(163, 35),
+(163, 38),
 (164, 19),
 (164, 31),
 (164, 32),
 (164, 34),
+(164, 35),
+(164, 37),
+(164, 38),
+(165, 17),
 (165, 19),
 (165, 20),
 (165, 26),
 (165, 27),
 (165, 29),
 (165, 34),
+(165, 38),
 (166, 18),
 (166, 21),
 (166, 22),
 (166, 23),
 (166, 25),
 (166, 33),
+(166, 35),
+(166, 36),
 (167, 19),
 (167, 28),
+(167, 37),
+(167, 39),
 (168, 19),
 (168, 23),
 (168, 28),
 (168, 29),
+(168, 36),
+(169, 17),
 (169, 31),
 (169, 32),
+(169, 35),
+(169, 36),
+(170, 17),
 (170, 24),
 (170, 26),
 (170, 27),
 (170, 29),
+(170, 36),
+(170, 37),
 (171, 23),
+(171, 36),
+(172, 17),
 (172, 31),
 (172, 32),
+(172, 35),
+(172, 36),
+(172, 38),
+(173, 17),
 (173, 19),
 (173, 28),
 (173, 32),
+(174, 35),
+(175, 17),
 (175, 19),
 (175, 26),
 (175, 27),
 (175, 28),
+(175, 36),
+(175, 37),
 (176, 24),
 (176, 27),
 (176, 33),
+(177, 16),
+(177, 35),
 (178, 26),
 (178, 28),
 (178, 30),
+(178, 36),
+(178, 39),
 (179, 18),
 (179, 28),
+(179, 37),
+(180, 16),
 (180, 18),
 (180, 19),
 (180, 20),
 (180, 21),
 (180, 22),
 (180, 33),
+(180, 35),
+(180, 36),
+(181, 16),
 (181, 21),
 (181, 22),
 (181, 25),
 (181, 30),
+(181, 39),
 (182, 30),
 (182, 33),
+(182, 37),
+(183, 17),
 (183, 21),
 (183, 25),
 (183, 26),
 (183, 27),
 (183, 29),
 (183, 33),
+(183, 35),
+(183, 36),
 (184, 22),
 (184, 23),
 (184, 24),
 (184, 26),
 (184, 29),
 (184, 30),
+(184, 36),
 (185, 21),
 (185, 22),
 (185, 23),
 (185, 28),
 (185, 29),
+(185, 35),
+(185, 36),
 (186, 22),
 (186, 30),
 (186, 33),
+(186, 39),
+(187, 17),
 (187, 27),
 (187, 29),
 (187, 31),
@@ -1847,15 +1638,23 @@ INSERT INTO `pregunta_tipo` (`pregunta_id`, `tipo_id`) VALUES
 (190, 26),
 (190, 29),
 (190, 30),
+(190, 35),
+(191, 17),
 (191, 28),
 (191, 29),
 (191, 34),
+(191, 38),
+(192, 16),
 (192, 21),
 (192, 22),
 (192, 32),
 (192, 33),
+(192, 35),
+(192, 36),
+(193, 16),
 (193, 25),
 (193, 30),
+(193, 39),
 (194, 19),
 (194, 26),
 (194, 27),
@@ -1863,10 +1662,13 @@ INSERT INTO `pregunta_tipo` (`pregunta_id`, `tipo_id`) VALUES
 (194, 34),
 (195, 23),
 (195, 29),
+(195, 35),
+(195, 36),
 (196, 18),
 (196, 19),
 (196, 27),
 (196, 28),
+(196, 37),
 (197, 18),
 (197, 21),
 (197, 22),
@@ -1875,8 +1677,11 @@ INSERT INTO `pregunta_tipo` (`pregunta_id`, `tipo_id`) VALUES
 (197, 29),
 (198, 22),
 (198, 30),
+(198, 39),
 (199, 23),
 (199, 29),
+(199, 35),
+(199, 36),
 (200, 20),
 (200, 24),
 (200, 25),
@@ -1886,27 +1691,36 @@ INSERT INTO `pregunta_tipo` (`pregunta_id`, `tipo_id`) VALUES
 (201, 22),
 (201, 24),
 (201, 30),
+(201, 36),
+(201, 37),
+(201, 39),
 (202, 19),
 (202, 20),
 (202, 23),
 (202, 24),
 (202, 28),
 (202, 29),
+(202, 37),
 (203, 24),
 (203, 25),
+(204, 16),
 (204, 20),
 (204, 22),
 (204, 25),
 (204, 26),
+(204, 35),
 (205, 18),
 (205, 19),
 (205, 28),
 (206, 33),
+(207, 14),
+(208, 16),
 (208, 25),
 (208, 31),
 (209, 27),
 (209, 29),
 (209, 34),
+(209, 38),
 (210, 19),
 (210, 24),
 (210, 25),
@@ -1914,32 +1728,43 @@ INSERT INTO `pregunta_tipo` (`pregunta_id`, `tipo_id`) VALUES
 (210, 27),
 (210, 29),
 (210, 34),
+(210, 35),
+(210, 36),
 (211, 26),
 (211, 29),
 (211, 31),
+(211, 37),
 (212, 23),
 (212, 31),
+(212, 35),
+(213, 17),
 (213, 19),
 (213, 21),
 (213, 22),
 (213, 28),
 (213, 33),
+(214, 16),
 (214, 18),
 (214, 20),
 (214, 25),
 (214, 26),
+(214, 35),
 (215, 18),
 (215, 19),
 (215, 28),
+(215, 37),
 (216, 18),
 (216, 25),
 (216, 28),
 (216, 33),
+(216, 37),
 (217, 20),
 (217, 21),
 (217, 23),
 (217, 28),
 (217, 29),
+(217, 35),
+(217, 36),
 (218, 19),
 (218, 20),
 (218, 24),
@@ -1947,6 +1772,8 @@ INSERT INTO `pregunta_tipo` (`pregunta_id`, `tipo_id`) VALUES
 (218, 30),
 (219, 28),
 (219, 30),
+(219, 37),
+(219, 39),
 (220, 22),
 (220, 23),
 (220, 24),
@@ -1954,18 +1781,25 @@ INSERT INTO `pregunta_tipo` (`pregunta_id`, `tipo_id`) VALUES
 (220, 28),
 (220, 29),
 (220, 30),
+(220, 35),
+(220, 36),
+(221, 16),
 (221, 21),
 (221, 22),
 (221, 24),
 (221, 28),
 (221, 33),
+(221, 36),
+(222, 17),
 (222, 27),
 (222, 29),
 (222, 34),
+(222, 37),
 (223, 20),
 (223, 27),
 (223, 29),
 (223, 34),
+(224, 14),
 (225, 21),
 (225, 22),
 (225, 32),
@@ -1978,57 +1812,68 @@ INSERT INTO `pregunta_tipo` (`pregunta_id`, `tipo_id`) VALUES
 (226, 27),
 (226, 29),
 (226, 30),
+(226, 35),
+(226, 36),
 (227, 21),
 (227, 22),
 (227, 23),
 (227, 30),
 (227, 33),
+(227, 36),
 (228, 20),
 (228, 21),
 (228, 29),
 (228, 32),
 (229, 27),
-(229, 33);
+(229, 33),
+(230, 35),
+(230, 36);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `resultado`
+-- Estructura de tabla para la tabla `resultado`
 --
 
-CREATE TABLE `resultado` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `resultado`;
+CREATE TABLE IF NOT EXISTS `resultado` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `test` varchar(45) DEFAULT NULL,
   `descripcion` varchar(45) DEFAULT NULL,
   `date` date DEFAULT NULL,
   `alumno_idalumno` int(11) NOT NULL,
-  `name` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `name` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`,`alumno_idalumno`),
+  KEY `fk_resultado_alumno1_idx` (`alumno_idalumno`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `resultado`
+-- Volcado de datos para la tabla `resultado`
 --
 
 INSERT INTO `resultado` (`id`, `test`, `descripcion`, `date`, `alumno_idalumno`, `name`) VALUES
 (1, 'Test del Estres', 'Descripcion', '2018-02-15', 1, 'Resultado 1'),
 (2, 'Test del Estres', 'descripcion', '2018-02-23', 2, 'test'),
-(3, 'Test del Estres', '', '2018-02-15', 3, 'Test del Estres');
+(3, 'Test del Estres', '', NULL, 3, 'Test del Estres'),
+(4, 'Test del Millon', '', '2018-02-22', 4, 'asdasd');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `test`
+-- Estructura de tabla para la tabla `test`
 --
 
-CREATE TABLE `test` (
+DROP TABLE IF EXISTS `test`;
+CREATE TABLE IF NOT EXISTS `test` (
   `id` int(11) NOT NULL,
   `name` varchar(60) NOT NULL,
   `tipo` varchar(45) DEFAULT NULL,
-  `descripcion` varchar(500) NOT NULL
+  `descripcion` varchar(500) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `test`
+-- Volcado de datos para la tabla `test`
 --
 
 INSERT INTO `test` (`id`, `name`, `tipo`, `descripcion`) VALUES
@@ -2038,16 +1883,20 @@ INSERT INTO `test` (`id`, `name`, `tipo`, `descripcion`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `test_has_alumno`
+-- Estructura de tabla para la tabla `test_has_alumno`
 --
 
-CREATE TABLE `test_has_alumno` (
+DROP TABLE IF EXISTS `test_has_alumno`;
+CREATE TABLE IF NOT EXISTS `test_has_alumno` (
   `test_idtest` int(11) NOT NULL,
-  `alumno_idalumno` int(11) NOT NULL
+  `alumno_idalumno` int(11) NOT NULL,
+  PRIMARY KEY (`test_idtest`,`alumno_idalumno`),
+  KEY `fk_test_has_alumno_alumno1_idx` (`alumno_idalumno`),
+  KEY `fk_test_has_alumno_test1_idx` (`test_idtest`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `test_has_alumno`
+-- Volcado de datos para la tabla `test_has_alumno`
 --
 
 INSERT INTO `test_has_alumno` (`test_idtest`, `alumno_idalumno`) VALUES
@@ -2056,16 +1905,18 @@ INSERT INTO `test_has_alumno` (`test_idtest`, `alumno_idalumno`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tipos`
+-- Estructura de tabla para la tabla `tipos`
 --
 
-CREATE TABLE `tipos` (
+DROP TABLE IF EXISTS `tipos`;
+CREATE TABLE IF NOT EXISTS `tipos` (
   `id` int(11) NOT NULL,
-  `name` varchar(80) NOT NULL
+  `name` varchar(80) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tipos`
+-- Volcado de datos para la tabla `tipos`
 --
 
 INSERT INTO `tipos` (`id`, `name`) VALUES
@@ -2112,20 +1963,22 @@ INSERT INTO `tipos` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Estructura de tabla para la tabla `user`
 --
 
-CREATE TABLE `user` (
-  `id` int(20) NOT NULL,
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
   `password` varchar(255) DEFAULT NULL,
   `username` varchar(255) DEFAULT NULL,
   `first_name` varchar(20) DEFAULT NULL,
   `last_name` varchar(20) DEFAULT NULL,
-  `rol` varchar(10) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `rol` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Volcado de datos para la tabla `user`
 --
 
 INSERT INTO `user` (`id`, `password`, `username`, `first_name`, `last_name`, `rol`) VALUES
@@ -2139,19 +1992,23 @@ INSERT INTO `user` (`id`, `password`, `username`, `first_name`, `last_name`, `ro
 -- --------------------------------------------------------
 
 --
--- Table structure for table `valores`
+-- Estructura de tabla para la tabla `valores`
 --
 
-CREATE TABLE `valores` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `valores`;
+CREATE TABLE IF NOT EXISTS `valores` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `resultado_id` int(11) NOT NULL,
   `tipo` varchar(80) NOT NULL,
   `value` int(11) NOT NULL,
-  `descripcion` varchar(180) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `descripcion` varchar(180) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_valores_resultados` (`resultado_id`),
+  KEY `valores_name` (`value`)
+) ENGINE=MyISAM AUTO_INCREMENT=115 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `valores`
+-- Volcado de datos para la tabla `valores`
 --
 
 INSERT INTO `valores` (`id`, `resultado_id`, `tipo`, `value`, `descripcion`) VALUES
@@ -2181,147 +2038,33 @@ INSERT INTO `valores` (`id`, `resultado_id`, `tipo`, `value`, `descripcion`) VAL
 (24, 2, 'N', 3, 'Posee una Negación alta'),
 (25, 2, 'CI', 1, 'Posee Conductas Inadecuadas bajas'),
 (26, 2, 'D', 2, 'Posee una Distracción promedio'),
-(76, 3, 'RR', 4, 'Posee una Retomo a la religión muy alto'),
-(74, 3, 'CI', 4, 'Posee una Conductas inadecuadas muy alto'),
-(75, 3, 'D', 4, 'Posee una Distracción muy alto'),
-(73, 3, 'N', 4, 'Posee una Negación muy alto'),
-(72, 3, 'AE', 4, 'Posee una Análisis de las emociones muy alto'),
-(71, 3, 'BSE', 4, 'Posee una Búsqueda de soporte emocional muy alto'),
-(70, 3, 'A', 4, 'Posee una Aceptación muy alto'),
-(68, 3, 'BSS', 4, 'Posee una Búsqueda de soporte social muy alto'),
-(69, 3, 'PA', 4, 'Posee una Planificación de Actividades muy alto'),
-(67, 3, 'RA', 4, 'Posee una Retracción del afrontamiento muy alto'),
-(65, 3, 'AD', 4, 'Posee un Afrontamiento Directomuy alto'),
-(66, 3, 'RPE', 4, 'Posee una Reinterpretación positiva de la experiencia muy alto'),
-(64, 3, 'SAC', 4, 'Posee una Superación de Actividades Competitivas muy alto');
+(90, 4, 'Y', 71, ''),
+(91, 4, 'X', 100, ''),
+(92, 4, '2', 94, ''),
+(93, 4, 'Z', 52, ''),
+(94, 4, '1', 88, ''),
+(95, 4, '6B', 97, ''),
+(96, 4, '4', 93, ''),
+(97, 4, '3', 69, ''),
+(98, 4, '5', 66, ''),
+(99, 4, '8A', 111, ''),
+(100, 4, '7', 68, ''),
+(101, 4, '6A', 106, ''),
+(102, 4, '8B', 83, ''),
+(103, 4, 'S', 91, ''),
+(104, 4, 'C', 77, ''),
+(105, 4, 'A', 2, ''),
+(106, 4, 'P', 104, ''),
+(107, 4, 'D', 31, ''),
+(108, 4, 'N', 84, ''),
+(109, 4, 'H', 47, ''),
+(110, 4, 'B', 60, ''),
+(111, 4, 'SS', 78, ''),
+(112, 4, 'T', 88, ''),
+(113, 4, 'PP', 90, ''),
+(114, 4, 'CC', 68, '');
+COMMIT;
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `alternativa`
---
-ALTER TABLE `alternativa`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `alumno`
---
-ALTER TABLE `alumno`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `alumno_has_grupo`
---
-ALTER TABLE `alumno_has_grupo`
-  ADD PRIMARY KEY (`alumno_idalumno`,`grupo_idgrupo`),
-  ADD KEY `fk_alumno_has_grupo_grupo1_idx` (`grupo_idgrupo`),
-  ADD KEY `fk_alumno_has_grupo_alumno1_idx` (`alumno_idalumno`);
-
---
--- Indexes for table `grupo`
---
-ALTER TABLE `grupo`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `pregunta`
---
-ALTER TABLE `pregunta`
-  ADD PRIMARY KEY (`id`,`test_id`),
-  ADD KEY `fk_pregunta_test1_idx` (`test_id`),
-  ADD KEY `fk_pregunta_tipo_idx` (`tipo_id`);
-
---
--- Indexes for table `pregunta_alternativa`
---
-ALTER TABLE `pregunta_alternativa`
-  ADD PRIMARY KEY (`pregunta_id`,`alternativa_id`),
-  ADD KEY `fk_alternativa_pregunta` (`alternativa_id`);
-
---
--- Indexes for table `pregunta_tipo`
---
-ALTER TABLE `pregunta_tipo`
-  ADD PRIMARY KEY (`pregunta_id`,`tipo_id`),
-  ADD KEY `fk_tipo_pregunta` (`tipo_id`);
-
---
--- Indexes for table `resultado`
---
-ALTER TABLE `resultado`
-  ADD PRIMARY KEY (`id`,`alumno_idalumno`),
-  ADD KEY `fk_resultado_alumno1_idx` (`alumno_idalumno`);
-
---
--- Indexes for table `test`
---
-ALTER TABLE `test`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `test_has_alumno`
---
-ALTER TABLE `test_has_alumno`
-  ADD PRIMARY KEY (`test_idtest`,`alumno_idalumno`),
-  ADD KEY `fk_test_has_alumno_alumno1_idx` (`alumno_idalumno`),
-  ADD KEY `fk_test_has_alumno_test1_idx` (`test_idtest`);
-
---
--- Indexes for table `tipos`
---
-ALTER TABLE `tipos`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `valores`
---
-ALTER TABLE `valores`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_valores_resultados` (`resultado_id`),
-  ADD KEY `valores_name` (`value`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `alternativa`
---
-ALTER TABLE `alternativa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `alumno`
---
-ALTER TABLE `alumno`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `grupo`
---
-ALTER TABLE `grupo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT for table `resultado`
---
-ALTER TABLE `resultado`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `valores`
---
-ALTER TABLE `valores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
